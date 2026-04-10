@@ -9,18 +9,18 @@ import lombok.*;
 @AllArgsConstructor
 @Data
 public class Shoe {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  private String nome;
-  private String categoria;
-  private int prezzo;
+    private String nome;
+    private String categoria;
+    private int prezzo;
 
-  @Column(name = "taglie_disponibili")
-  private int[] taglieDisponibili;
-  private String descrizione;
-  private String immagine;
+    @Column(name = "taglie_disponibili")
+    private int[] taglieDisponibili;
+    private String descrizione;
+    private String immagine;
 
-  // Mettere la relazione con le altre tabelle
+    // Mettere la relazione con le altre tabelle
 }
