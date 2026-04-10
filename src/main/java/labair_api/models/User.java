@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "utenti")
 @NoArgsConstructor
@@ -25,6 +27,7 @@ public class User {
     private String paese;
     private String telefono;
 
-
     // Mettere la relazione con le altre tabelle
+    @OneToMany(mappedBy = "utente")
+    private List<Order> ordini;
 }
