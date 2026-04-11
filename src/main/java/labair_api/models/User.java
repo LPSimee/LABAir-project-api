@@ -27,7 +27,9 @@ public class User {
     private String paese;
     private String telefono;
 
-    // Mettere la relazione con le altre tabelle
-    @OneToMany(mappedBy = "utente")
+    @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL)
     private List<Order> ordini;
+
+    @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CartItem> carrello;
 }
