@@ -3,6 +3,8 @@ package labair_api.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "scarpe")
 @NoArgsConstructor
@@ -18,9 +20,8 @@ public class Shoe {
     private int prezzo;
 
     @Column(name = "taglie_disponibili")
-    private int[] taglieDisponibili;
+    private int[] taglieDisponibili; // Modificare
+    private List<String> coloriDisponibili; // Modificare
     private String descrizione;
     private String immagine;
-
-    // Mettere la relazione con le altre tabelle
 }

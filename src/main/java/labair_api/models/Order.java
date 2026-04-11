@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "ordini")
@@ -26,6 +27,8 @@ public class Order {
     @JoinColumn(name = "utente_id")
     private User utente;
 
+    @OneToMany(mappedBy = "ordine", cascade = CascadeType.ALL)
+    private List<OrderDetails> dettagli;
 
     // Mettere la relazione con CartItem
 }
