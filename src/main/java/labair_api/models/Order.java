@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -25,6 +26,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "utente_id")
+    @ToString.Exclude
     private User utente;
 
     @OneToMany(mappedBy = "ordine", cascade = CascadeType.ALL)

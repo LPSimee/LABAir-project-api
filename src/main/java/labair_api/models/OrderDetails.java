@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "dettagli_ordine")
@@ -11,21 +12,23 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class OrderDetails {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  @Column(name = "prezzo_unitario")
-  private Double prezzoUnitario;
-  private Integer quantita;
-  private String taglia;
-  private String colore;
+    @Column(name = "prezzo_unitario")
+    private Double prezzoUnitario;
+    private Integer quantita;
+    private String taglia;
+    private String colore;
 
-  @ManyToOne
-  @JoinColumn(name = "ordine_id")
-  private Order ordine;
+    @ManyToOne
+    @JoinColumn(name = "ordine_id")
+    @ToString.Exclude
+    private Order ordine;
 
-  @ManyToOne
-  @JoinColumn(name = "scarpa_id")
-  private Shoe scarpa;
+    @ManyToOne
+    @JoinColumn(name = "scarpa_id")
+    @ToString.Exclude
+    private Shoe scarpa;
 }

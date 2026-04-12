@@ -19,9 +19,14 @@ public class Shoe {
     private String categoria;
     private int prezzo;
 
-    @Column(name = "taglie_disponibili")
-    private int[] taglieDisponibili; // Modificare
-    private List<String> coloriDisponibili; // Modificare
+    @ElementCollection
+    @CollectionTable(name = "scarpa_taglie", joinColumns = @JoinColumn(name = "scarpa_id"))
+    private List<Integer> taglieDisponibili;
+
+    @ElementCollection
+    @CollectionTable(name = "scarpa_colori", joinColumns = @JoinColumn(name = "scarpa_id"))
+    private List<String> coloriDisponibili;
+
     private String descrizione;
     private String immagine;
 }
