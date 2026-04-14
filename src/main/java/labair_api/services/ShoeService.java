@@ -21,8 +21,8 @@ public class ShoeService {
         return shoeRepository.findById(id).orElse(null); // Mettere Exception
     }
 
-    public void saveNewShoe(Shoe shoe) {
-        shoeRepository.save(shoe);
+    public Shoe saveNewShoe(Shoe shoe) {
+        return shoeRepository.save(shoe);
     }
 
     public void deleteShoeById(Long id){
@@ -42,5 +42,9 @@ public class ShoeService {
         }
 
         return category.isEmpty() ? shoeRepository.findAll(sortedShoes) : shoeRepository.getShoesByCategoria(category, sortedShoes);
+    }
+
+    public Shoe findShoeByNome(String nome) {
+        return shoeRepository.getShoeByNome(nome);
     }
 }
