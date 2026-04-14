@@ -27,6 +27,12 @@ public class ShoeController {
         return ResponseEntity.ok(shoeService.findShoeByNome(nome));
     }
 
+    @GetMapping
+    ResponseEntity<List<Shoe>> getShoesByFilters(@RequestParam String category, @RequestParam String sortBy){
+
+        return ResponseEntity.ok(shoeService.getShoesByFilters(category, sortBy));
+    }
+
     @PostMapping
     ResponseEntity<Shoe> addShoe(@RequestBody Shoe newShoe) {
         return ResponseEntity.ok(shoeService.saveNewShoe(newShoe));
