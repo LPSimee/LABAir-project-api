@@ -30,5 +30,5 @@ public class Shoe {
     private String descrizione;
     private String immagine;
 
-    private Boolean nuovi_arrivi;
+    private Boolean nuoviArrivi;
 }

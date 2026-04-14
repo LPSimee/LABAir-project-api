@@ -34,7 +34,7 @@ public class ShoeService {
 
         if(!sortBy.isEmpty()){
             sortedShoes = switch (sortBy) {
-                case "newest" -> Sort.by("nuovi_arrivi").descending();
+                case "newest" -> Sort.by("nuoviArrivi").descending();
                 case "priceAsc" -> Sort.by("prezzo").ascending();
                 case "priceDesc" -> Sort.by("prezzo").descending();
                 default -> Sort.unsorted();
