@@ -18,19 +18,19 @@ public class ShoeController {
     public ShoeController(ShoeService shoeService) { this.shoeService = shoeService; }
 
     @GetMapping
-    ResponseEntity<List<Shoe>> getShoes() {
+    public ResponseEntity<List<Shoe>> getShoes(
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) String sortBy) {
+
+        if (category != null || sortBy != null) {
+            return ResponseEntity.ok(shoeService.getShoesByFilters(category, sortBy));
+        }
         return ResponseEntity.ok(shoeService.getAllShoes());
     }
 
     @GetMapping("/{nome}")
     ResponseEntity<Shoe> getShoe(@PathVariable String nome) {
         return ResponseEntity.ok(shoeService.findShoeByNome(nome));
-    }
-
-    @GetMapping
-    ResponseEntity<List<Shoe>> getShoesByFilters(@RequestParam String category, @RequestParam String sortBy){
-
-        return ResponseEntity.ok(shoeService.getShoesByFilters(category, sortBy));
     }
 
     @PostMapping

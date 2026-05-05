@@ -1,6 +1,5 @@
 package labair_api.services;
 
-import labair_api.exceptions.ResourceNotFoundException;
 import labair_api.models.Shoe;
 import labair_api.repositories.ShoeRepository;
 import org.springframework.data.domain.Sort;
@@ -16,10 +15,6 @@ public class ShoeService {
 
     public List<Shoe> getAllShoes() {
         return shoeRepository.findAll();
-    }
-
-    public Shoe getShoeById(Long id){
-        return shoeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Shoe not found with id: " + id));
     }
 
     public Shoe saveNewShoe(Shoe shoe) {
